@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: jizhang_sql
+      MYSQL_USER: ningxu
+      MYSQL_PASSWORD: 85113251
+      MYSQL_ROOT_PASSWORD: 85113251
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - '3306:3306'
+
+volumes:
+  mysql_data:
+
